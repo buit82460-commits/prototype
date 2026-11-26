@@ -1,0 +1,6 @@
+{
+  "name": "Miro — AI Operating Workspace",
+  "description": "Command. Execute. Observe. Control. Personal AI Operating Workspace combining natural-language collaboration, direct tool operation, and autonomous workflows.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

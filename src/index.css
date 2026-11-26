@@ -1,0 +1,336 @@
+@import "tailwindcss";
+@import "@xyflow/react/dist/style.css";
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ============================================================================
+   MIRO DESIGN SYSTEM 01 — SEMANTIC TOKENS & THEMES
+   ============================================================================ */
+
+:root,
+[data-theme="midnight-lime"] {
+  /* Background & Surfaces */
+  --color-canvas: #0B0B0C;
+  --color-sidebar: #111214;
+  --color-header: #111214;
+  --color-surface-1: #17181B;
+  --color-surface-2: #1D1F22;
+  --color-surface-3: #24262A;
+  --color-hover: #2B2D31;
+  --color-overlay: rgba(0, 0, 0, 0.65);
+
+  /* Typography */
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #A1A1AA;
+  --color-text-muted: #92969F;
+  --color-text-disabled: #62656C;
+  --color-text-on-accent: #0B0B0C;
+
+  /* Borders */
+  --color-border-subtle: #232529;
+  --color-border: #292C30;
+  --color-border-strong: #41444B;
+  --color-border-interactive: #777B83;
+
+  /* Brand Accent */
+  --color-accent: #C6F432;
+  --color-accent-hover: #D5FA64;
+  --color-accent-active: #ABD625;
+  --color-accent-subtle: #202914;
+  --color-accent-border: #52652A;
+  --color-accent-text: #C6F432;
+
+  /* Semantic */
+  --color-success: #22C55E;
+  --color-success-bg: #14291C;
+  --color-warning: #F59E0B;
+  --color-warning-bg: #302410;
+  --color-error: #EF4444;
+  --color-error-bg: #32191B;
+  --color-info: #60A5FA;
+  --color-info-bg: #17283D;
+
+  /* Focus */
+  --color-focus-ring: #C6F432;
+
+  /* Atmospheric Welcome Glow */
+  --welcome-glow: rgba(198, 244, 50, 0.085);
+  --welcome-grid: rgba(255, 255, 255, 0.03);
+
+  /* Radii */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+
+  /* Elevation */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.15);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.22);
+  --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.40);
+
+  /* Typography Families */
+  --font-sans: 'Geist', 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  color-scheme: dark;
+}
+
+[data-theme="navy-cream"] {
+  --color-canvas: #14213D;
+  --color-sidebar: #101B32;
+  --color-header: #101B32;
+  --color-surface-1: #1C2B45;
+  --color-surface-2: #243551;
+  --color-surface-3: #30415D;
+  --color-hover: #2A3D5C;
+  --color-overlay: rgba(8, 14, 28, 0.68);
+
+  --color-text-primary: #F4EDE0;
+  --color-text-secondary: #C2CAD6;
+  --color-text-muted: #A0ACC0;
+  --color-text-disabled: #6B7B96;
+  --color-text-on-accent: #14213D;
+
+  --color-border-subtle: #283A57;
+  --color-border: #354762;
+  --color-border-strong: #4A6082;
+  --color-border-interactive: #7C92B4;
+
+  --color-accent: #F4EDE0;
+  --color-accent-hover: #FFF9EE;
+  --color-accent-active: #E0D6C4;
+  --color-accent-subtle: #253652;
+  --color-accent-border: #667896;
+  --color-accent-text: #F4EDE0;
+
+  --color-success: #34D399;
+  --color-success-bg: #13352D;
+  --color-warning: #FBBF24;
+  --color-warning-bg: #3A2E14;
+  --color-error: #F87171;
+  --color-error-bg: #3E1D24;
+  --color-info: #7DD3FC;
+  --color-info-bg: #16324A;
+
+  --color-focus-ring: #F4EDE0;
+
+  --welcome-glow: rgba(244, 237, 224, 0.08);
+  --welcome-grid: rgba(244, 237, 224, 0.035);
+
+  color-scheme: dark;
+}
+
+[data-theme="light"] {
+  --color-canvas: #F8FAFC;
+  --color-sidebar: #F1F3F5;
+  --color-header: #FFFFFF;
+  --color-surface-1: #FFFFFF;
+  --color-surface-2: #F3F4F6;
+  --color-surface-3: #E9EBEF;
+  --color-hover: #EAECEF;
+  --color-overlay: rgba(16, 17, 20, 0.45);
+
+  --color-text-primary: #101114;
+  --color-text-secondary: #525761;
+  --color-text-muted: #636975;
+  --color-text-disabled: #9CA3AF;
+  --color-text-on-accent: #101114;
+
+  --color-border-subtle: #EAEDF0;
+  --color-border: #E1E4E8;
+  --color-border-strong: #C9CFD7;
+  --color-border-interactive: #8C93A0;
+
+  --color-accent: #C6F432;
+  --color-accent-hover: #B8E625;
+  --color-accent-active: #A5D11B;
+  --color-accent-subtle: #EEF7D0;
+  --color-accent-border: #9CC223;
+  --color-accent-text: #3F5907;
+
+  --color-success: #16A34A;
+  --color-success-bg: #DCFCE7;
+  --color-warning: #D97706;
+  --color-warning-bg: #FEF3C7;
+  --color-error: #DC2626;
+  --color-error-bg: #FEE2E2;
+  --color-info: #2563EB;
+  --color-info-bg: #DBEAFE;
+
+  --color-focus-ring: #4B6B08;
+
+  --welcome-glow: rgba(198, 244, 50, 0.16);
+  --welcome-grid: rgba(16, 17, 20, 0.035);
+
+  --shadow-sm: 0 1px 2px rgba(16, 17, 20, 0.06);
+  --shadow-md: 0 4px 16px rgba(16, 17, 20, 0.08);
+  --shadow-lg: 0 12px 36px rgba(16, 17, 20, 0.14);
+
+  color-scheme: light;
+}
+
+/* ============================================================================
+   BASE & TYPOGRAPHY RULES
+   ============================================================================ */
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-canvas);
+    color: var(--color-text-primary);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    line-height: 22px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+.font-mono-tech {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Strict Miro Typography Scale */
+.text-display {
+  font-size: 48px;
+  line-height: 56px;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
+}
+@media (max-width: 639px) {
+  .text-display {
+    font-size: 32px;
+    line-height: 40px;
+  }
+}
+
+.text-h1 {
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+.text-h2 {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+.text-h3 {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.text-h4 {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.text-h5 {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+.text-h6 {
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* Focus rings */
+:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
+
+/* Atmospheric background strictly for Empty Workspace / Welcome */
+.miro-welcome-atmosphere {
+  background-color: var(--color-canvas);
+  background-image:
+    radial-gradient(ellipse at 50% 108%, var(--welcome-glow), transparent 62%),
+    linear-gradient(to right, var(--welcome-grid) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--welcome-grid) 1px, transparent 1px);
+  background-size: 100% 100%, 40px 40px, 40px 40px;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-strong);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-border-interactive);
+}
+
+/* React Flow theme integration */
+.react-flow__background {
+  background-color: var(--color-canvas);
+}
+.react-flow__controls {
+  background: var(--color-surface-1);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  box-shadow: var(--shadow-sm);
+}
+.react-flow__controls-button {
+  background: var(--color-surface-1);
+  border-bottom: 1px solid var(--color-border);
+  fill: var(--color-text-secondary);
+}
+.react-flow__controls-button:hover {
+  background: var(--color-hover);
+  fill: var(--color-text-primary);
+}
+.react-flow__minimap {
+  background: var(--color-surface-1);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+}
+.react-flow__attribution {
+  background: transparent !important;
+  opacity: 0.32;
+  font-size: 9px;
+}
+
+/* Indeterminate progress animation */
+@keyframes miro-indeterminate {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(300%); }
+}
+.animate-miro-indeterminate {
+  animation: miro-indeterminate 1.4s cubic-bezier(0.2, 0, 0, 1) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

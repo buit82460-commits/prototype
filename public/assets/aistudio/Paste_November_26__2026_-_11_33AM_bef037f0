@@ -1,0 +1,3286 @@
+Đúng. Prompt trước mới tập trung vào **Product Requirements và Interaction Design**, chưa quy định đủ sâu về **Design System, Visual Hierarchy, Component System và Page Layout Specification**.
+
+Nếu chỉ yêu cầu AI thiết kế theo phong cách premium, minimal, giống Linear hoặc Cursor thì mỗi trang có thể được thiết kế theo một cách khác nhau. Trang này dùng border-radius 8px, trang khác dùng 24px; heading không thống nhất; spacing tùy ý; màu accent bị lạm dụng.
+
+Lần này tôi sẽ quy định Miro như một dự án thiết kế sản phẩm chuyên nghiệp, có hệ thống tiêu chuẩn riêng. AI được sáng tạo trong phạm vi tiêu chuẩn đó, thay vì tự quyết định toàn bộ.
+
+# **I. Chốt Miro Design System**
+
+## **1. Hệ thống màu sắc — Color System**
+
+Bảng màu chủ đạo được phát triển từ mẫu Midnight Black, Pure White và Lime Green bạn đã gửi.
+
+# **miro.**
+
+DESIGN SYSTEM 01
+
+**Midnight Black**
+
+\#0B0B0C
+
+**Pure White**
+
+\#FFFFFF
+
+**Electric Lime**
+
+\#C6F432
+
+### **Background & Surface**
+
+**Canvas**
+
+Nền chính
+
+\#0B0B0C
+
+**Sidebar**
+
+Thanh điều hướng
+
+\#111214
+
+**Surface 1**
+
+Panel và card
+
+\#17181B
+
+**Surface 2**
+
+Input và vùng nội dung
+
+\#1D1F22
+
+**Surface 3**
+
+Popover, dropdown
+
+\#24262A
+
+**Hover**
+
+Trạng thái hover
+
+\#2B2D31
+
+Không sử dụng màu đen thuần `#000000` cho toàn bộ ứng dụng. Các tầng background phải có độ chênh sáng nhẹ để tạo chiều sâu mà không cần đổ bóng nhiều.
+
+### **Accent Colors**
+
+**Primary**
+
+\#C6F432
+
+**Hover**
+
+\#D5FA64
+
+**Pressed**
+
+\#ABD625
+
+**Subtle**
+
+\#202914
+
+**On Accent**
+
+\#0B0B0C
+
+**Focus**
+
+\#C6F432
+
+### **Semantic Colors**
+
+Success
+
+\#22C55E
+
+Warning
+
+\#F59E0B
+
+Error
+
+\#EF4444
+
+Info
+
+\#60A5FA
+
+Màu lime là màu nhận diện thương hiệu và hành động chính, không thay thế màu semantic của hệ thống.
+
+Quy tắc tỷ lệ màu tham khảo:
+
+80% Neutral15% Content5% Accent
+
+Đây là nguyên tắc thị giác, không phải yêu cầu đo chính xác số pixel.
+
+## **2. Typography System**
+
+Tôi chọn **Geist làm font chính và JetBrains Mono làm font kỹ thuật**. Inter là phương án thay thế khi Geist không đáp ứng tốt tiếng Việt hoặc môi trường triển khai.
+
+PRIMARY TYPEFACE — GEISTMinh họa phân cấp typography, không phải bản render chính xác font Geist.
+
+| Token      | Font size | Line height | Weight | Letter spacing |
+| ---------- | --------- | ----------- | ------ | -------------- |
+| Display    | 48px      | 56px        | 600    | -0.04em        |
+| H1         | 32px      | 40px        | 600    | -0.03em        |
+| H2         | 24px      | 32px        | 600    | -0.025em       |
+| H3         | 20px      | 28px        | 600    | -0.02em        |
+| H4         | 16px      | 24px        | 600    | -0.01em        |
+| H5         | 14px      | 20px        | 600    | 0              |
+| H6         | 12px      | 18px        | 600    | 0.02em         |
+| Body Large | 16px      | 24px        | 400    | 0              |
+| Body       | 14px      | 22px        | 400    | 0              |
+| Body Small | 13px      | 20px        | 400    | 0              |
+| Caption    | 12px      | 18px        | 400    | 0              |
+| Label      | 12px      | 16px        | 500    | 0              |
+| Button     | 13px      | 20px        | 500    | 0              |
+| Technical  | 12px      | 18px        | 400    | 0              |
+
+Không sử dụng font-weight 700–900 tràn lan. Thiết kế cao cấp không đồng nghĩa với việc mọi thứ đều phải in đậm.
+
+## **3. Spacing, Radius và kích thước component**
+
+**Spacing system — 4px base grid**
+
+4px
+
+8px
+
+12px
+
+16px
+
+24px
+
+32px
+
+40px
+
+48px
+
+64px
+
+**Border radius**
+
+4px
+
+6px
+
+8px
+
+12px
+
+16px
+
+24px
+
+32px
+
+Full
+
+| Component            | Tiêu chuẩn           |
+| -------------------- | -------------------- |
+| Sidebar expanded     | 224px                |
+| Sidebar collapsed    | 56px                 |
+| Global header        | 52px                 |
+| Context panel        | 320–640px, resizable |
+| Page padding         | 24px desktop         |
+| Section gap          | 24px                 |
+| Card padding         | 16px hoặc 20px       |
+| Standard button      | 36px height          |
+| Primary button       | 40px height          |
+| Icon button          | 32–36px              |
+| Input                | 36–40px height       |
+| Table row            | 44px                 |
+| Sidebar item         | 34px                 |
+| Button radius        | 6px                  |
+| Input radius         | 6px                  |
+| Card radius          | 8–12px               |
+| Modal radius         | 12px                 |
+| Chat composer radius | 12–16px              |
+| Border               | 1px                  |
+
+## **4. Background Image, Texture và Gradient**
+
+Đây là phần tôi muốn lấy cảm hứng từ các mẫu ảnh của bạn, nhưng sử dụng có giới hạn.
+
+**Welcome / Empty State**
+
+Gradient nhẹ, texture tinh tế, tạo bản sắc.
+
+**Operational Workspace**
+
+Nền sạch, không hiệu ứng làm nhiễu thông tin.
+
+Quy định: chỉ sử dụng background-image hoặc gradient tại Welcome Screen, Onboarding, Empty State và các khu vực nhận diện thương hiệu. Không dùng ảnh nền trong bảng dữ liệu, form, task inspector hay trang Settings.
+
+# **II. Prompt Master V2 — Dựng toàn bộ Miro**
+
+Đây là bản prompt thay thế hoàn toàn prompt trước. Tôi đã tích hợp cả hệ thống màu, font, component, layout, thư viện lập trình, thiết kế từng màn hình và hành vi tương tác.
+
+Bạn có thể gửi nguyên văn vào Lovable hoặc Google AI Studio, đính kèm năm ảnh thiết kế tham khảo ban đầu.
+
+# MIRO — MASTER PRODUCT DESIGN & FRONTEND PROTOTYPE SPECIFICATION V2
+
+## 00. YOUR ROLE
+
+Act as a world-class multidisciplinary product team consisting of:
+
+- Senior Product Designer.
+- UX Architect.
+- UI Design System Engineer.
+- Senior React Frontend Engineer.
+- Interaction Designer.
+- Creative Director.
+
+Your responsibility is to design and implement the entire interactive frontend prototype of Miro.
+
+Do not behave like a generic website generator.
+
+Follow the product architecture, visual rules, design tokens, component specifications, interaction contracts, and page-level layouts in this document.
+
+Make creative decisions only within the defined design system.
+
+Build the actual application, not a design proposal, not a landing page, and not a collection of static mockups.
+
+Implement all main pages in one pass.
+
+---
+
+# 01. PRODUCT DEFINITION
+
+Product name: **Miro**
+
+Product category: **AI Operating Workspace**
+
+Brand philosophy:
+
+**Command. Execute. Observe. Control.**
+
+Miro is an independent AI workspace where humans and AI collaborate, execute tasks, operate tools, manage resources, and automate work.
+
+Miro combines three primary experiences:
+
+1. AI Workspace — natural-language interaction and AI collaboration.
+2. Control Center — direct manual operation of tools and resources.
+3. Automation Center — schedules, workflows, events, and autonomous execution.
+
+The user must be able to operate Miro without depending entirely on the chat interface.
+
+AI can execute tasks in the background while the user continues working.
+
+The user can observe AI execution, inspect progress, navigate to the actual resource being manipulated, pause execution, approve actions, or take over control.
+
+Miro is not a generic chatbot.
+
+Miro is not a generic analytics dashboard.
+
+Miro is not a marketing website.
+
+Miro should feel like a premium personal AI operating environment.
+
+---
+
+# 02. DESIGN REFERENCES AND ART DIRECTION
+
+Use the uploaded design references as inspiration for:
+
+- Strong typography.
+- Restrained color palettes.
+- High visual contrast.
+- Intentional accent color.
+- Premium editorial composition.
+- Atmospheric lighting.
+- Subtle background textures.
+- Visual hierarchy.
+
+Do not copy the website layouts shown in the references.
+
+Take inspiration from:
+
+- Linear for navigation, spacing, information density, tables, and task organization.
+- Raycast for keyboard interactions, command palette, and quick actions.
+- Cursor for contextual AI collaboration and split workspaces.
+- Vercel for monochromatic surfaces, technical clarity, and restrained styling.
+- Notion Calendar for schedule management.
+- n8n for workflow visualization.
+- CapCut for media previews, timelines, and asset organization.
+
+Combine these qualities into a distinct Miro visual identity.
+
+Do not recreate another product's branding or logo.
+
+Design adjectives:
+
+Premium, precise, restrained, intelligent, modern, technical, calm, efficient, editorial, sophisticated.
+
+---
+
+# 03. MANDATORY FRONTEND TECHNOLOGY STACK
+
+Use the following preferred stack.
+
+## Application
+
+- React.
+- TypeScript.
+- Vite.
+- React Router.
+
+If the host platform requires another compatible React framework, adapt without introducing unnecessary complexity.
+
+## Styling
+
+- Tailwind CSS.
+- CSS custom properties for semantic design tokens.
+- Global CSS for typography, themes, animations, and foundational rules.
+- clsx.
+- tailwind-merge.
+- Class Variance Authority for reusable component variants.
+
+## UI Components
+
+Use shadcn/ui and Radix UI primitives where appropriate:
+
+- Dialog.
+- Alert Dialog.
+- Dropdown Menu.
+- Select.
+- Popover.
+- Tooltip.
+- Tabs.
+- Accordion.
+- Sheet.
+- Drawer.
+- Context Menu.
+- Scroll Area.
+- Command.
+- Checkbox.
+- Switch.
+- Slider.
+- Separator.
+
+Do not retain the default shadcn visual appearance without customization.
+
+Adapt every component to the Miro design system.
+
+## Icons
+
+- Lucide React.
+- Use consistent outlined icons.
+- Default stroke width: approximately 1.75.
+- Default sizes: 16px, 18px, 20px, 24px.
+
+Do not mix multiple icon libraries.
+
+Do not use emojis as primary navigation icons.
+
+## State Management
+
+- Zustand for shared application state.
+- Persistent local storage for appropriate demo data.
+- Typed selectors and domain stores.
+
+Do not duplicate task state inside individual pages.
+
+## Data Tables
+
+- TanStack Table.
+- Sorting.
+- Filtering.
+- Row selection.
+- Column visibility.
+- Pagination or virtualization where useful.
+
+## Split Workspace
+
+- react-resizable-panels or equivalent.
+
+## Workflow Editor
+
+- @xyflow/react for interactive workflow graphs.
+
+## Calendar
+
+- FullCalendar or an equivalent React calendar component.
+
+## Forms
+
+- React Hook Form.
+- Zod for form validation.
+
+## Dates and Time
+
+- date-fns.
+- Explicit IANA timezone handling.
+- Default user timezone: Asia/Bangkok, configurable in Settings.
+
+## Notifications
+
+- Sonner or equivalent lightweight toast system.
+
+## Animation
+
+- CSS transitions for standard component interactions.
+- Motion, formerly Framer Motion, only for purposeful UI transitions.
+
+## Charts
+
+- Recharts only when a chart genuinely improves information comprehension.
+
+Do not create unnecessary charts merely to fill a dashboard.
+
+Use these dependencies only where they provide meaningful functionality.
+
+Do not install unrelated packages.
+
+Do not create a production backend or connect paid services.
+
+---
+
+# 04. PROJECT ORGANIZATION
+
+Organize code using a scalable feature-based frontend architecture.
+
+Suggested structure:
+
+```
+src/
+  app/
+  components/
+    ui/
+    layout/
+    shared/
+  features/
+    overview/
+    ai-workspace/
+    tasks/
+    projects/
+    schedules/
+    workflows/
+    browser/
+    research/
+    media/
+    publishing/
+    knowledge/
+    activity/
+    integrations/
+    settings/
+  stores/
+  domain/
+  services/
+    contracts/
+    mock/
+  hooks/
+  lib/
+  styles/
+  assets/
+  i18n/
+```
+
+Separate:
+
+- Presentation.
+- Shared components.
+- Domain models.
+- State management.
+- Mock fixtures.
+- Simulated execution engine.
+- Future API service interfaces.
+
+Do not place the entire application inside one giant App.tsx file.
+
+Do not scatter hardcoded color values across page components.
+
+Use reusable semantic design tokens.
+
+Create one shared mock execution service, not separate fake progress timers for each screen.
+
+---
+
+# 05. BRAND IDENTITY
+
+Create a simple original Miro wordmark.
+
+Preferred treatment:
+
+- Lowercase "miro."
+- Modern geometric typography.
+- Medium or semibold weight.
+- White text in dark mode.
+- Lime accent on the period or small brand detail.
+
+The application logo should be compact and recognizable at small sizes.
+
+Avoid large decorative robot mascots.
+
+The product itself should communicate intelligence through clarity, execution visibility, and interaction design.
+
+Brand statement:
+
+"Intelligence, in motion."
+
+Product philosophy:
+
+"Command. Execute. Observe. Control."
+
+Use these statements sparingly.
+
+Do not repeat marketing slogans on every application page.
+
+---
+
+# 06. COLOR SYSTEM — MANDATORY DESIGN TOKENS
+
+## Default theme: Midnight Lime
+
+Define semantic CSS variables equivalent to the following.
+
+### Background
+
+```
+--color-canvas: #0B0B0C;
+--color-sidebar: #111214;
+--color-header: #111214;
+--color-surface-1: #17181B;
+--color-surface-2: #1D1F22;
+--color-surface-3: #24262A;
+--color-hover: #2B2D31;
+--color-overlay: rgba(0, 0, 0, 0.60);
+```
+
+### Typography
+
+```
+--color-text-primary: #FFFFFF;
+--color-text-secondary: #A1A1AA;
+--color-text-muted: #92969F;
+--color-text-disabled: #62656C;
+--color-text-on-accent: #0B0B0C;
+```
+
+### Border
+
+```
+--color-border-subtle: #232529;
+--color-border: #292C30;
+--color-border-strong: #41444B;
+--color-border-interactive: #777B83;
+```
+
+### Brand Accent
+
+```
+--color-accent: #C6F432;
+--color-accent-hover: #D5FA64;
+--color-accent-active: #ABD625;
+--color-accent-subtle: #202914;
+--color-accent-border: #52652A;
+```
+
+### Semantic
+
+```
+--color-success: #22C55E;
+--color-success-bg: #14291C;
+--color-warning: #F59E0B;
+--color-warning-bg: #302410;
+--color-error: #EF4444;
+--color-error-bg: #32191B;
+--color-info: #60A5FA;
+--color-info-bg: #17283D;
+```
+
+### Focus
+
+```
+--color-focus-ring: #C6F432;
+```
+
+## Color usage rules
+
+Use neutral colors for approximately 80–90% of the interface.
+
+Use the lime accent selectively.
+
+Lime should highlight:
+
+- Primary actions.
+- Selected navigation.
+- Active AI execution.
+- Progress.
+- Important interactive elements.
+
+Do not use lime for every heading, card, border, or icon.
+
+Do not confuse brand accent with semantic success.
+
+Red is reserved for errors, destructive actions, and significant warnings.
+
+Amber is reserved for waiting states, intervention, or approval requirements.
+
+Blue is used for informational states.
+
+Maintain sufficient text contrast.
+
+Target WCAG AA contrast for readable text and meaningful controls.
+
+Do not use disabled text colors for important content.
+
+---
+
+# 07. ADDITIONAL THEMES
+
+Implement a functional theme provider.
+
+## Midnight Lime
+
+The default dark theme defined above.
+
+## Navy Cream
+
+```
+--color-canvas: #14213D;
+--color-sidebar: #101B32;
+--color-header: #101B32;
+--color-surface-1: #1C2B45;
+--color-surface-2: #243551;
+--color-surface-3: #30415D;
+--color-text-primary: #F4EDE0;
+--color-text-secondary: #C2CAD6;
+--color-text-muted: #A0ACC0;
+--color-border: #354762;
+--color-accent: #F4EDE0;
+--color-text-on-accent: #14213D;
+```
+
+Derive appropriate hover, focus, and semantic colors with sufficient contrast.
+
+## Light Mode
+
+```
+--color-canvas: #F8FAFC;
+--color-sidebar: #F1F3F5;
+--color-header: #FFFFFF;
+--color-surface-1: #FFFFFF;
+--color-surface-2: #F3F4F6;
+--color-surface-3: #E9EBEF;
+--color-text-primary: #101114;
+--color-text-secondary: #525761;
+--color-text-muted: #636975;
+--color-border: #E1E4E8;
+--color-accent: #C6F432;
+--color-text-on-accent: #101114;
+```
+
+Use a darker olive-green tone for accent text when necessary on light backgrounds.
+
+Do not use pale lime text on white.
+
+## System Mode
+
+Follow the operating system light/dark preference.
+
+Persist the user's selected theme.
+
+All components, overlays, tables, calendars, workflow nodes, and editors must respond consistently to the selected theme.
+
+---
+
+# 08. TYPOGRAPHY SYSTEM
+
+Primary UI font:
+
+Geist.
+
+Fallback:
+
+Inter, system-ui, and appropriate Vietnamese-supporting sans-serif fonts.
+
+Technical font:
+
+JetBrains Mono.
+
+Use the technical font for:
+
+- Task IDs.
+- Timestamps.
+- URLs.
+- Code.
+- Technical logs.
+- Runtime events.
+- Numerical technical metadata.
+
+Do not use monospace for normal body text.
+
+Ensure Vietnamese characters render correctly.
+
+## Typography tokens
+
+| Token      | Font size | Line height | Weight | Tracking |
+| ---------- | --------- | ----------- | ------ | -------- |
+| Display    | 48px      | 56px        | 600    | -0.04em  |
+| H1         | 32px      | 40px        | 600    | -0.03em  |
+| H2         | 24px      | 32px        | 600    | -0.025em |
+| H3         | 20px      | 28px        | 600    | -0.02em  |
+| H4         | 16px      | 24px        | 600    | -0.01em  |
+| H5         | 14px      | 20px        | 600    | 0        |
+| H6         | 12px      | 18px        | 600    | 0.02em   |
+| Body Large | 16px      | 24px        | 400    | 0        |
+| Body       | 14px      | 22px        | 400    | 0        |
+| Body Small | 13px      | 20px        | 400    | 0        |
+| Caption    | 12px      | 18px        | 400    | 0        |
+| Label      | 12px      | 16px        | 500    | 0        |
+| Button     | 13px      | 20px        | 500    | 0        |
+| Technical  | 12px      | 18px        | 400    | 0        |
+
+## Heading rules
+
+- Display is reserved for the empty AI Workspace welcome screen or onboarding.
+- H1 is used for primary page headings.
+- H2 is used for major sections and detail page headings.
+- H3 is used for workspace sections.
+- H4 is used for card groups and important panel headings.
+- H5 is used for individual component headings.
+- H6 is used for compact metadata groups where appropriate.
+
+Use semantic HTML heading hierarchy.
+
+Do not skip heading levels arbitrarily.
+
+Do not use oversized headings inside compact toolbars and dialogs.
+
+Avoid unnecessary bold text.
+
+Use weight 400 for normal content.
+
+Use weight 500 for interactive labels.
+
+Use weight 600 for hierarchy and emphasis.
+
+Use weight 700 only for rare brand-specific or highly important emphasis.
+
+---
+
+# 09. SPACING AND GRID SYSTEM
+
+Use a 4px foundational grid.
+
+Allowed spacing scale:
+
+```
+0, 2, 4, 8, 12, 16, 20, 24,
+32, 40, 48, 64, 80, 96
+```
+
+Prefer:
+
+- 4px between closely related elements.
+- 8px between icon and label.
+- 12px between compact component groups.
+- 16px for standard component padding.
+- 24px between sections.
+- 32px between major page regions.
+
+Desktop page padding: 24px.
+
+Compact desktop padding: 16px.
+
+Mobile page padding: 12–16px.
+
+Use a 12-column grid for appropriate dashboard layouts.
+
+Use flexible grids and resizable panels for operational workspaces.
+
+Do not force every page into a grid of cards.
+
+Tables, lists, editors, calendars, and canvases should occupy the available workspace naturally.
+
+---
+
+# 10. BORDER RADIUS SYSTEM
+
+Define:
+
+```
+--radius-xs: 4px;
+--radius-sm: 6px;
+--radius-md: 8px;
+--radius-lg: 12px;
+--radius-xl: 16px;
+--radius-full: 9999px;
+```
+
+Usage:
+
+- Small tags: 4px.
+- Inputs: 6px.
+- Standard buttons: 6px.
+- Table containers: 8px.
+- Cards: 8–12px.
+- Popovers: 8–12px.
+- Dialogs: 12px.
+- Chat composer: 12–16px.
+- Avatars and circular indicators: full radius.
+
+Do not use 24px or larger corner radii for ordinary panels.
+
+Avoid excessive pill-shaped components.
+
+Use a 1px border for most component boundaries.
+
+---
+
+# 11. SHADOWS AND ELEVATION
+
+Use tonal surface differences and subtle borders as the main elevation system.
+
+Define:
+
+```
+--shadow-sm: 0 1px 2px rgba(0,0,0,0.15);
+--shadow-md: 0 4px 16px rgba(0,0,0,0.20);
+--shadow-lg: 0 12px 40px rgba(0,0,0,0.35);
+```
+
+Usage:
+
+- Normal cards: no shadow or minimal shadow.
+- Dropdowns: medium elevation.
+- Popovers: medium elevation.
+- Modal dialogs: high elevation.
+- Floating command palette: high elevation.
+
+Do not apply glowing outlines to every component.
+
+Do not use large colorful shadows.
+
+Do not use heavy neumorphism.
+
+---
+
+# 12. BACKGROUND, TEXTURE AND ATMOSPHERIC DESIGN
+
+The operational application background must remain neutral and clean.
+
+Do not use full-page background images in data-heavy workspaces.
+
+For selected welcome screens, onboarding, or empty states, allow a subtle atmospheric background.
+
+Example treatment:
+
+```
+background-color: var(--color-canvas);
+
+background-image:
+  radial-gradient(
+    ellipse at 50% 110%,
+    rgba(198, 244, 50, 0.08),
+    transparent 65%
+  );
+```
+
+Optional grid texture:
+
+- Very low opacity.
+- Approximately 2–4%.
+- Thin lines.
+- Must not interfere with text.
+
+Optional grain texture:
+
+- Extremely subtle.
+- Decorative only.
+- No expensive rendering effects.
+
+Use atmospheric gradients only where they enhance the brand experience.
+
+Do not use generic purple-blue AI gradients.
+
+Do not use large neon glows in task tables, browser controls, forms, or Settings.
+
+Do not use stock photography as application decoration.
+
+---
+
+# 13. MOTION SYSTEM
+
+Define motion durations:
+
+- Instant feedback: 80ms.
+- Hover transition: 120ms.
+- Standard interaction: 160ms.
+- Panel expansion: 220ms.
+- Dialog transition: 200ms.
+- Page-level transition: 200–250ms.
+
+Use easing:
+
+- Standard: cubic-bezier(0.2, 0, 0, 1).
+- Exit: ease-in.
+
+Animations should communicate:
+
+- State changes.
+- Panel opening.
+- Task progression.
+- Resource selection.
+- Ownership transfer.
+- Loading.
+- Successful actions.
+
+Do not add animation for decoration alone.
+
+Respect prefers-reduced-motion.
+
+Avoid animating the entire page during navigation.
+
+---
+
+# 14. COMPONENT DESIGN SYSTEM
+
+## Primary Button
+
+- Height: 36–40px.
+- Horizontal padding: 12–16px.
+- Radius: 6px.
+- Background: accent.
+- Text: text-on-accent.
+- Weight: 500.
+- Icon: 16px.
+- Hover: accent-hover.
+- Pressed: accent-active.
+
+Only one visually dominant primary action per logical section.
+
+## Secondary Button
+
+- Height: 36px.
+- Background: surface-2.
+- Border: 1px border.
+- Text: primary.
+- Hover: surface-3.
+
+## Ghost Button
+
+- Transparent background.
+- Hover background: hover.
+- Text: secondary or primary depending on importance.
+
+## Destructive Button
+
+- Red semantic styling.
+- Confirmation for destructive operations.
+- Do not use red for ordinary cancellation navigation.
+
+## Icon Button
+
+- 32–36px square.
+- Radius: 6px.
+- Tooltip when the action is not self-explanatory.
+- Visible focus state.
+
+## Input
+
+- Height: 36–40px.
+- Radius: 6px.
+- Background: surface-2.
+- Border: 1px border-interactive when necessary.
+- Font size: 14px.
+- Horizontal padding: 12px.
+- Clear focus ring.
+- Label above input.
+- Error message below input.
+
+## Textarea
+
+- Minimum height appropriate to content.
+- Vertical resizing when useful.
+- Consistent input styling.
+
+## Select
+
+- Same visual height as input.
+- Searchable for large resource lists.
+- Clear selected state.
+
+## Card
+
+- Surface-1.
+- Border: 1px border.
+- Radius: 8–12px.
+- Padding: 16px or 20px.
+- Avoid unnecessary nested cards.
+
+## Badge
+
+- Compact.
+- 20–24px height.
+- 11–12px text.
+- Used only for meaningful statuses or categories.
+- Avoid badges on every text item.
+
+## Tabs
+
+- Compact horizontal navigation.
+- Active indicator through underline or subtle selected surface.
+- Use tabs for views of the same resource.
+- Do not use tabs as a substitute for global navigation.
+
+## Data Table
+
+- Header height: 36px.
+- Row height: 44px.
+- Compact mode: 36px.
+- Horizontal separators.
+- Minimal vertical lines.
+- Hovered row background.
+- Sticky header where useful.
+- Sort controls.
+- Selected row state.
+- Meaningful empty state.
+
+## Modal
+
+- Radius: 12px.
+- Standard width: 480px.
+- Form dialog: 640px.
+- Large detail dialog: up to 960px.
+- Dimmed overlay.
+- Keyboard focus management.
+- Escape closes when safe.
+
+## Drawer / Inspector
+
+- Default width: 360px.
+- Large inspector: 480px.
+- Full-width on small screens.
+- Close and expand controls.
+- Internal scroll independent from the main page.
+
+## Tooltip
+
+- Compact.
+- High contrast.
+- 12px text.
+- Short explanatory labels.
+
+## Progress
+
+Support:
+
+- Determinate.
+- Count-based.
+- Stage-based.
+- Indeterminate.
+
+Default bar height: 4–6px.
+
+Larger progress bars: 8px only when prominent.
+
+Progress must correspond to shared task execution state.
+
+## Skeleton
+
+Use subtle animated surface transitions.
+
+Do not show a fake completed state while loading.
+
+---
+
+# 15. GLOBAL APPLICATION SHELL
+
+Desktop-first application layout.
+
+At a standard 1440px desktop viewport:
+
+- Expanded sidebar: 224px.
+- Global header: 52px height.
+- Main workspace: flexible remaining width.
+- Optional right panel: 320–640px.
+- Default right panel width: approximately 420px.
+- Collapsed sidebar: 56px.
+
+The application shell fills the available viewport height.
+
+Use independently scrollable regions.
+
+Avoid scrolling the entire application shell.
+
+The header and primary navigation remain stable while changing pages.
+
+Preserve current conversation, task selection, project context, and resource context during navigation.
+
+Allow the sidebar and right panels to collapse.
+
+Use resizable panels when two workspaces appear side by side.
+
+Remember panel preferences locally.
+
+---
+
+# 16. GLOBAL SIDEBAR
+
+## Top area
+
+- Miro wordmark.
+- Workspace selector.
+- Quick search.
+- Keyboard shortcut hint: Ctrl+K / Cmd+K.
+- New conversation or quick create action.
+
+## Navigation groups
+
+WORKSPACE:
+
+- Overview — LayoutDashboard icon.
+- AI Workspace — MessageSquare icon.
+- Tasks — ListChecks icon.
+- Projects — Folder icon.
+
+AUTOMATION:
+
+- Schedules — CalendarClock icon.
+- Workflows — Workflow icon.
+
+TOOLS:
+
+- Browser — Chrome icon.
+- Research — Search icon.
+- Media Studio — Film icon.
+- Publishing — Send icon.
+- Knowledge — BookOpen icon.
+
+SYSTEM:
+
+- Activity — Activity icon.
+- Integrations — Plug icon.
+- Settings — Settings icon.
+
+## Sidebar behavior
+
+- Group heading: 10–11px, medium weight, subtle uppercase.
+- Navigation item: 34px height.
+- Navigation icon: 17px.
+- Label: 13px, weight 500.
+- Active item: accent-subtle background, appropriate accent text or indicator.
+- Hover: subtle surface change.
+- Horizontal padding: 10–12px.
+- Item gap: 2–4px.
+
+Support:
+
+- Collapsible groups.
+- Pinned tools.
+- Collapsed icon-only sidebar.
+- Tooltips.
+- Active route highlighting.
+
+## Bottom area
+
+- Runtime status.
+- Connected workspace or machine.
+- User avatar.
+- Theme access.
+- Settings shortcut.
+
+Do not place oversized promotional cards in the sidebar.
+
+---
+
+# 17. GLOBAL HEADER
+
+Height: 52px.
+
+Left:
+
+- Current breadcrumb.
+- Optional page-specific context.
+
+Right:
+
+- Active task counter.
+- Task Monitor.
+- Pending approvals indicator.
+- Notification icon.
+- Global AI Assistant toggle.
+- User menu.
+
+Use compact icon buttons.
+
+Task count must update from shared application state.
+
+Provide a clear "Demo Mode" indication somewhere globally without making the interface visually distracting.
+
+---
+
+# 18. AI WORKSPACE PAGE
+
+Route: /workspace
+
+This is the default application entry page.
+
+## Layout
+
+Use a centered conversation column when Live Workspace is closed.
+
+Maximum readable chat content width: approximately 800px.
+
+When Live Workspace opens:
+
+- Chat: approximately 45% of remaining space.
+- Live Workspace: approximately 55%.
+- Resizable divider.
+
+Minimum sensible desktop chat width: 360px.
+
+Provide a separate conversation history panel or collapsible history section.
+
+Do not overload the global sidebar with all conversation history.
+
+## Empty state
+
+Create a premium central welcome composition.
+
+Elements:
+
+- Small original Miro brand symbol.
+- H1 or Display headline.
+- Short helpful description.
+- Large composer.
+- Suggested task actions.
+- Recent conversations.
+
+Example headline:
+
+"What shall we work on?"
+
+Vietnamese alternative:
+
+"Hôm nay chúng ta làm gì?"
+
+Use a subtle radial glow or grid texture behind this empty state.
+
+Keep the empty state restrained.
+
+## Active conversation
+
+Display:
+
+- User messages.
+- Miro responses.
+- Live Task Cards.
+- Structured results.
+- Reports.
+- Resource links.
+- Attachments.
+- Approval requests.
+- Error and partial-result messages.
+
+User messages:
+
+- Right aligned where appropriate.
+- Surface-2 background.
+- Radius 12px.
+- Restrained width.
+
+Miro responses:
+
+- Natural left-aligned content.
+- Do not put every AI paragraph inside a heavy card.
+- Use readable typography.
+- Support structured content.
+
+## Chat Composer
+
+- Sticky near the bottom of the conversation region.
+- Maximum height adapts to multiline content.
+- Surface-2 background.
+- Border.
+- Radius 12–16px.
+- Padding 12–16px.
+
+Include:
+
+- Text input.
+- Attach files.
+- Context selector.
+- Tools selector.
+- Model selector.
+- Profile selector.
+- Send action.
+
+Keyboard:
+
+- Enter to send when appropriate.
+- Shift+Enter for newline.
+
+Do not disable the entire composer when a task is running.
+
+The user must be able to submit another task.
+
+---
+
+# 19. LIVE TASK CARD COMPONENT
+
+Create one reusable task card design.
+
+Use it in:
+
+- AI Workspace.
+- Overview.
+- Task Monitor.
+- Task detail views where appropriate.
+
+## Layout
+
+Top row:
+
+- Task category icon.
+- Task title.
+- Compact status indicator.
+
+Metadata:
+
+- Resource.
+- Profile.
+- Trigger source.
+- Elapsed time.
+
+Execution:
+
+- Current operation.
+- Progress.
+- Completed count and total if measurable.
+
+Expandable details:
+
+- Execution steps.
+- Completed steps.
+- Current step.
+- Pending steps.
+- Error or approval information.
+
+Bottom actions:
+
+- Open related workspace.
+- Show Live Workspace.
+- Pause/resume.
+- Cancel.
+- View result.
+
+Style:
+
+- Surface-1.
+- 1px border.
+- 10px radius.
+- 12–16px padding.
+- 12px internal spacing.
+
+Do not create oversized task cards.
+
+Allow a compact collapsed version.
+
+Example:
+
+TikTok Research
+
+Running
+
+Profile 20 · Collecting videos
+
+4/10 videos — 40%
+
+Show progress based on the mock execution engine.
+
+Do not generate independent random percentages.
+
+---
+
+# 20. UNIVERSAL LIVE WORKSPACE
+
+Live Workspace is the central differentiator of Miro.
+
+It is a reusable contextual surface showing the object or tool Miro is currently working on.
+
+It must not be implemented only as a browser viewer.
+
+## Shared shell
+
+Header:
+
+- Live Workspace title.
+- Selected task.
+- Current resource.
+- Status.
+- Expand button.
+- Close button.
+- Human Takeover action.
+
+Tabs where appropriate:
+
+- Workspace.
+- Activity.
+- Evidence.
+- Result.
+
+Modes:
+
+- Hidden.
+- Split view.
+- Expanded.
+- Dedicated full-page view.
+
+Opening or closing the panel must not affect task execution.
+
+## Browser workspace
+
+Show:
+
+- Browser toolbar.
+- Current URL.
+- Profile identifier.
+- Browser viewport preview.
+- Current interaction highlight.
+- Observation status.
+- Active page information.
+
+Use a realistic mock browser view.
+
+Do not load a real authenticated website in the prototype.
+
+Label browser preview as demo.
+
+## Schedule workspace
+
+Show a live form that updates as the simulated AI configures:
+
+- Schedule name.
+- Task instruction.
+- Recurrence.
+- Time.
+- Timezone.
+- Target resource.
+- Approval policy.
+
+Highlight the field currently being configured.
+
+## Document workspace
+
+Show:
+
+- Editable document.
+- Section headings.
+- Draft content.
+- Current editing section.
+- Save state.
+
+## Media workspace
+
+Show:
+
+- Video preview.
+- Timeline.
+- Scene segments.
+- Transcript.
+- Current analysis timestamp.
+
+## Workflow workspace
+
+Show:
+
+- Workflow graph.
+- Node states.
+- Current executing node.
+- Connection lines.
+- Selected node inspector.
+
+## Publishing workspace
+
+Show:
+
+- Platform.
+- Account.
+- Media preview.
+- Caption.
+- Approval state.
+- Publishing progress.
+
+## Activity workspace
+
+Show chronological, human-readable execution events.
+
+Include timestamps and related resources.
+
+## Evidence workspace
+
+Show:
+
+- Source.
+- Observation.
+- Validation status.
+- Missing fields.
+- Record identity.
+- Related task.
+- Timestamp.
+
+Do not expose internal credentials or private model reasoning.
+
+---
+
+# 21. OVERVIEW PAGE
+
+Route: /overview
+
+Purpose:
+
+Understand what Miro is doing and what requires attention.
+
+## Desktop layout
+
+Use a 12-column grid with 16px gaps.
+
+### Header
+
+- H1: Overview.
+- Short contextual subtitle.
+- Date or workspace context.
+- Quick create action.
+
+### First row
+
+Four compact metric cards:
+
+- Running tasks.
+- Queued tasks.
+- Completed today.
+- Needs attention.
+
+Use meaningful counts.
+
+Do not add decorative trend lines unless actual demo data supports them.
+
+### Second row
+
+Left, approximately eight columns:
+
+- Active tasks.
+- Compact task cards.
+- Current progress.
+- Open task action.
+
+Right, approximately four columns:
+
+- Needs your attention.
+- Pending approvals.
+- Problems requiring intervention.
+
+### Third row
+
+- Upcoming schedules.
+- Connected resources.
+- Recent activity.
+
+### Optional bottom area
+
+- Recent projects.
+- Quick actions.
+
+Prioritize operational information.
+
+Avoid a dashboard filled with irrelevant analytics.
+
+---
+
+# 22. TASKS PAGE
+
+Route: /tasks
+
+Purpose:
+
+Manage all work across Chat, Manual, Schedule, Workflow, and Event triggers.
+
+## Header
+
+- H1: Tasks.
+- Create task button.
+- Search.
+- Filters.
+- View switcher: List / Board.
+
+## List view
+
+Use a professional high-density table.
+
+Columns:
+
+- Task name.
+- Status.
+- Progress.
+- Priority.
+- Trigger.
+- Resource.
+- Created.
+- Actions.
+
+Support sorting, searching, and filtering.
+
+## Board view
+
+Columns based on meaningful task groups:
+
+- Queued.
+- Running.
+- Waiting.
+- Completed.
+
+Do not imply that dragging a card into Completed can override execution state.
+
+Dragging may change allowed priority or queue position only.
+
+## Task Inspector
+
+Open a right-side inspector when a task is selected.
+
+Default width: 400–480px.
+
+Tabs:
+
+- Summary.
+- Activity.
+- Resources.
+- Evidence.
+- Result.
+
+Actions:
+
+- Pause.
+- Resume.
+- Cancel.
+- Retry.
+- Open workspace.
+
+---
+
+# 23. PROJECTS PAGE
+
+Route: /projects
+
+Purpose:
+
+Organize related work, assets, tasks, and knowledge.
+
+## Project library
+
+Use compact cards or list view.
+
+Each project:
+
+- Name.
+- Short description.
+- Status.
+- Task count.
+- Resource count.
+- Last activity.
+
+## Project detail
+
+Header:
+
+- Project name.
+- Status.
+- Project actions.
+
+Tabs:
+
+- Overview.
+- Conversations.
+- Tasks.
+- Research.
+- Media.
+- Schedules.
+- Workflows.
+- Knowledge.
+
+Include:
+
+- Project goal.
+- Active work.
+- Recent results.
+- Related resources.
+
+Demo projects:
+
+- KANS 377 Product Research.
+- Fashion Content Production.
+- Affiliate Content Operations.
+
+Use subtle project icons rather than large unrelated photography.
+
+---
+
+# 24. SCHEDULES PAGE
+
+Route: /schedules
+
+Purpose:
+
+Manage autonomous tasks and time-based execution.
+
+## Header
+
+- H1: Schedules.
+- Create schedule.
+- Search.
+- View switcher: List / Calendar.
+
+## List view
+
+Columns:
+
+- Schedule name.
+- Enabled state.
+- Frequency.
+- Next run.
+- Last run.
+- Resource.
+- Status.
+
+Actions:
+
+- Edit.
+- Run now.
+- Enable/disable.
+- Duplicate.
+- Delete.
+
+## Calendar view
+
+Support:
+
+- Month.
+- Week.
+- Day where appropriate.
+
+Use restrained calendar event colors.
+
+Use accent for selected events, not every event.
+
+## Schedule detail editor
+
+Main area:
+
+- Schedule name.
+- Task instruction.
+- Trigger type.
+- Date and time.
+- Recurrence.
+- Timezone.
+- Target profile or resource.
+- Execution limits.
+- Missed-run behavior.
+- Approval requirements.
+
+Right panel:
+
+- Schedule summary.
+- Next run.
+- Execution history.
+- Current configuration activity.
+
+AI-created schedule drafts must update the same shared state as manually created schedules.
+
+When AI is configuring a schedule, the user can open the exact draft from Chat.
+
+Show which fields are being configured.
+
+Support simulated Human Takeover.
+
+The user must be able to create schedules without Chat.
+
+---
+
+# 25. WORKFLOWS PAGE
+
+Route: /workflows
+
+Purpose:
+
+Design reusable multi-step automations.
+
+## Workflow library
+
+- Search.
+- Templates.
+- Create workflow.
+- List of existing workflows.
+- Enabled state.
+- Last execution.
+
+## Editor layout
+
+Left:
+
+- Node library.
+- Searchable node categories.
+- Approximately 220px width when visible.
+
+Center:
+
+- Infinite workflow canvas.
+- Zoom.
+- Pan.
+- Fit view.
+- Subtle dotted grid background.
+
+Right:
+
+- Node inspector.
+- Configuration.
+- Input and output fields.
+- Validation errors.
+- Approximately 320px width.
+
+Top toolbar:
+
+- Workflow name.
+- Save.
+- Validate.
+- Run.
+- Enable/disable.
+
+Bottom or expandable panel:
+
+- Execution log.
+
+## Node design
+
+- Compact rectangular cards.
+- 8px radius.
+- Surface-2 background.
+- 1px border.
+- Clear node type icon.
+- Node name.
+- Connection ports.
+- Status indicator.
+
+Selected node uses accent border.
+
+Running node uses restrained active highlighting.
+
+Do not make every node brightly colored.
+
+Node categories:
+
+- Trigger.
+- Browser.
+- AI.
+- Media.
+- Conditions.
+- Data.
+- Human Approval.
+- Publishing.
+
+Use @xyflow/react or equivalent.
+
+---
+
+# 26. BROWSER PAGE
+
+Route: /browser
+
+Purpose:
+
+Manage browser profiles and observe browser execution.
+
+## Header
+
+- H1: Browser.
+- Connected profile count.
+- Search.
+- Connection actions.
+
+## Main content
+
+Profile table:
+
+- Profile name.
+- Optional alias.
+- Connection state.
+- Identity verification.
+- Active tabs.
+- Current task.
+- Ownership.
+- Last activity.
+- Actions.
+
+Use distinct statuses:
+
+- Connected.
+- Disconnected.
+- Busy.
+- Unverified.
+- Reconnecting.
+
+Do not conflate connection with identity verification.
+
+## Profile detail
+
+Top:
+
+- Profile name.
+- Connection state.
+- Available permission summary.
+- Open profile action.
+
+Main:
+
+- Tabs list.
+- Browser preview.
+- Selected tab.
+- Current URL.
+
+Right inspector:
+
+- Current task.
+- Ownership.
+- Permissions.
+- Recent observations.
+- Activity.
+
+Actions:
+
+- Open.
+- Connect.
+- Reconnect.
+- Disconnect.
+- Observe.
+- Take over.
+
+Simulate these operations only.
+
+Never request or display actual cookies, passwords, tokens, or browser credentials.
+
+---
+
+# 27. RESEARCH PAGE
+
+Route: /research
+
+Purpose:
+
+Collect, organize, inspect, and analyze research results.
+
+## Layout
+
+Header:
+
+- H1: Research.
+- New research action.
+- Search and filters.
+
+Research project list:
+
+- Project name.
+- Research type.
+- Collected records.
+- Status.
+- Last activity.
+
+## Research detail
+
+Header:
+
+- Research title.
+- Query.
+- Target platform.
+- Result count.
+- Status.
+
+Main content:
+
+- Structured result table.
+
+Columns for TikTok research:
+
+- Thumbnail.
+- Creator.
+- Caption.
+- Hashtags.
+- Views.
+- Likes.
+- Comments.
+- Shares.
+- Source.
+- Observation status.
+
+Allow:
+
+- Sorting.
+- Filtering.
+- Selecting.
+- Column visibility.
+- Export of demo data.
+
+Right inspector:
+
+- Selected record.
+- Video preview placeholder.
+- Source URL.
+- Full caption.
+- Evidence.
+- Observed metrics.
+- Missing fields.
+- Notes.
+
+Additional tabs:
+
+- Results.
+- Sources.
+- Notes.
+- Summary.
+
+Demo data must use fictional records and clearly identify them as samples.
+
+Never represent fictional metrics as actual TikTok research.
+
+Use an em dash or "Not observed" for missing values.
+
+---
+
+# 28. MEDIA STUDIO PAGE
+
+Route: /media
+
+Purpose:
+
+Manage and analyze media resources.
+
+## Layout
+
+Left:
+
+- Media library.
+- Search.
+- Collections.
+- Media type filters.
+- Approximately 220–260px when visible.
+
+Center:
+
+- Large media preview.
+- Playback controls.
+- Media information.
+
+Right:
+
+- Inspector with tabs:
+  - Metadata.
+  - Transcript.
+  - Analysis.
+  - Notes.
+
+Bottom:
+
+- Timeline.
+- Scene segments.
+- Timestamp markers.
+
+Use flexible resizable panels.
+
+## Media library
+
+Support:
+
+- Video.
+- Image.
+- Audio.
+- Demo uploads.
+- Grid view.
+- List view.
+
+Use consistent thumbnail aspect ratios.
+
+Do not fill the page with random stock media.
+
+## Analysis mode
+
+Display:
+
+- Video frame previews.
+- Scene boundaries.
+- Transcript with timestamps.
+- Current analysis stage.
+- Progress.
+- Scene descriptions.
+
+Support selecting a scene and navigating the demo preview.
+
+Include REA-MẮT and REA Video sections as simulated future capabilities.
+
+Do not implement a full professional editing application.
+
+Focus on realistic media analysis interactions.
+
+---
+
+# 29. PUBLISHING PAGE
+
+Route: /publishing
+
+Purpose:
+
+Prepare and manage content publications.
+
+## Main views
+
+- Drafts.
+- Queue.
+- Calendar.
+- History.
+
+Header:
+
+- H1: Publishing.
+- Create publication.
+- Filter by platform or account.
+
+## Publication editor
+
+Left or center:
+
+- Platform selection.
+- Account selection.
+- Media attachment.
+- Caption editor.
+- Hashtags.
+- Schedule.
+
+Right:
+
+- Platform-specific preview.
+- Validation.
+- Approval status.
+
+Use realistic but fictional platform previews.
+
+Platforms:
+
+- TikTok.
+- Facebook.
+- Instagram.
+- YouTube.
+- Threads.
+
+Support draft creation, edit, queue, scheduling, simulated approval, and simulated publishing.
+
+All publishing actions must remain simulated.
+
+Do not connect to real accounts.
+
+---
+
+# 30. KNOWLEDGE PAGE
+
+Route: /knowledge
+
+Purpose:
+
+Organize information used by Miro.
+
+## Layout
+
+Left:
+
+- Collections.
+- Project knowledge.
+- User instructions.
+- Documents.
+- Tags.
+
+Center:
+
+- Searchable knowledge list.
+- Document editor or reader.
+
+Right:
+
+- Source metadata.
+- Related projects.
+- Context availability.
+
+Support:
+
+- Add document.
+- Add note.
+- Edit.
+- Tag.
+- Search.
+- Select for AI context.
+
+Clearly distinguish:
+
+- User instructions.
+- Project knowledge.
+- External retrieved information.
+- AI-generated notes.
+
+Do not present all knowledge as equally authoritative.
+
+Use a clean document-oriented layout.
+
+---
+
+# 31. ACTIVITY PAGE
+
+Route: /activity
+
+Purpose:
+
+Inspect system-wide execution history.
+
+## Layout
+
+Header:
+
+- H1: Activity.
+- Search.
+- Date range.
+- Event filters.
+
+Main:
+
+- Timeline or table view.
+
+Events:
+
+- Task lifecycle.
+- Tool execution.
+- Schedule execution.
+- Resource update.
+- Connection.
+- Approval.
+- Recovery.
+- Error.
+
+Click an event to open a details inspector.
+
+Show:
+
+- Event type.
+- Timestamp.
+- Task ID.
+- Resource.
+- Human-readable description.
+- Safe technical metadata.
+
+Provide a Summary / Technical view switch.
+
+Never expose private AI reasoning or secret values.
+
+---
+
+# 32. INTEGRATIONS PAGE
+
+Route: /integrations
+
+Purpose:
+
+Manage services and external capabilities.
+
+Organize categories:
+
+AI Models:
+
+- OpenAI.
+- Google Gemini.
+- Anthropic.
+- Ollama.
+
+Browser and Runtime:
+
+- Chrome Extension.
+- Miro Bridge.
+- Windows Runtime.
+
+Data:
+
+- Local persistence.
+- Supabase.
+- PostgreSQL.
+
+Automation:
+
+- n8n.
+- Webhooks.
+- Scheduler.
+
+Connectivity:
+
+- Tailscale.
+- Cloud access.
+
+Use compact integration cards with:
+
+- Product icon.
+- Name.
+- Description.
+- Status.
+- Configure action.
+
+Statuses:
+
+- Simulated connected.
+- Not configured.
+- Unavailable.
+- Coming soon.
+
+No real API keys required.
+
+Do not falsely mark integrations as active.
+
+---
+
+# 33. SETTINGS PAGE
+
+Route: /settings
+
+Use a two-column settings layout.
+
+Left settings navigation:
+
+Approximately 200–220px.
+
+Right content:
+
+Maximum readable width approximately 800px.
+
+Sections:
+
+- General.
+- Appearance.
+- Language.
+- Workspace.
+- AI Models.
+- Agent Behavior.
+- Browser.
+- Automation.
+- Permissions.
+- Security.
+- Notifications.
+- Local Storage.
+- Cloud Sync.
+- Runtime.
+- About.
+
+Use compact setting rows rather than separate cards for every option.
+
+Each setting row:
+
+- Title.
+- Description.
+- Control aligned to the right where appropriate.
+
+Use switches for binary settings.
+
+Use select controls for multiple options.
+
+Use confirmation dialogs for destructive actions.
+
+Provide functional:
+
+- Theme selection.
+- Language selection.
+- Compact/comfortable density.
+- Sidebar preference.
+- Default profile.
+- Default workspace.
+- Notification settings.
+- Reset Demo Data.
+
+Persist appropriate settings locally.
+
+---
+
+# 34. GLOBAL TASK MONITOR
+
+Accessible from every page.
+
+Use a right drawer or expandable global panel.
+
+Default width: 400px.
+
+Header:
+
+- Task Monitor.
+- Running count.
+- Queued count.
+- Filters.
+
+Task sections:
+
+- Active.
+- Waiting.
+- Paused.
+- Recently completed.
+
+Each item:
+
+- Task title.
+- Status.
+- Progress.
+- Resource.
+- Current stage.
+- Open action.
+- Pause/resume.
+- Cancel.
+
+Footer:
+
+- View all tasks.
+- Stop all automated tasks.
+
+Stop all requires confirmation.
+
+In the simulation, stop must change shared execution state rather than merely display a toast.
+
+---
+
+# 35. APPROVAL CENTER AND NOTIFICATIONS
+
+Create a centralized "Needs your attention" area.
+
+Separate three categories:
+
+1. Approval required.
+2. Intervention required.
+3. Informational notifications.
+
+Approval card:
+
+- Requested action.
+- Related task.
+- Target resource.
+- Why approval is needed.
+- Consequences.
+- Approve.
+- Reject.
+- View task.
+
+Intervention card:
+
+- Problem.
+- Affected resource.
+- Related task.
+- Recommended action.
+- Open relevant workspace.
+
+Notification:
+
+- Message.
+- Timestamp.
+- Related object.
+- Read/unread state.
+
+Do not classify completed-task notifications as required approvals.
+
+Use amber for genuine approval or warning states.
+
+Use red only for significant errors or destructive consequences.
+
+---
+
+# 36. HUMAN TAKEOVER AND RESOURCE OWNERSHIP
+
+Implement shared simulated resource ownership.
+
+Ownership states:
+
+- AI Controlled.
+- Takeover Requested.
+- Transferring Control.
+- Human Controlled.
+- Returning Control.
+- AI Resuming.
+
+Required flow:
+
+1. User requests takeover.
+2. Task enters a transitional state.
+3. Simulated AI stops issuing new updates for the resource.
+4. Ownership is transferred.
+5. User can manually edit the resource.
+6. User returns control to Miro.
+7. Simulated AI re-observes the changed resource.
+8. AI resumes from the updated state.
+
+Do not allow simultaneous simulated AI and human writes to the same resource.
+
+Do not implement takeover as an isolated visual toggle.
+
+Clearly label the prototype ownership mechanism as simulated.
+
+---
+
+# 37. TASK STATE SYSTEM
+
+Use shared domain state.
+
+Proposed UI execution states:
+
+- Queued.
+- Planning.
+- Running.
+- Waiting for Approval.
+- Waiting for Resource.
+- Pausing.
+- Paused.
+- Recovering.
+- Cancelling.
+- Completed.
+- Partial.
+- Failed.
+- Cancelled.
+
+Keep resource ownership separate from task execution state.
+
+For example, Human Controlled is an ownership state and may be presented alongside a paused task.
+
+Status mapping:
+
+- Queued: neutral.
+- Planning: neutral or information.
+- Running: accent.
+- Waiting for Approval: amber.
+- Waiting for Resource: amber.
+- Pausing: neutral.
+- Paused: neutral.
+- Recovering: information.
+- Cancelling: neutral or warning.
+- Completed: success.
+- Partial: warning.
+- Failed: error.
+- Cancelled: muted neutral.
+
+Use text labels and icons, not color alone.
+
+These are prototype UI models.
+
+Do not assume they are the real backend enums.
+
+---
+
+# 38. PROGRESS MODEL
+
+Support:
+
+## Count-based
+
+Example:
+
+4 of 10 videos collected.
+
+## Stage-based
+
+Example:
+
+3 of 5 configuration stages completed.
+
+## Indeterminate
+
+Example:
+
+Searching for relevant sources when the total is unknown.
+
+## Waiting
+
+Example:
+
+Waiting for publishing approval.
+
+Do not create fake exact percentages for indeterminate tasks.
+
+All progress components must read from the same task state.
+
+Completed means the simulated task has actually reached its defined completion condition.
+
+Partial means the task completed only part of its requested output.
+
+---
+
+# 39. TASK DEEP LINKS AND CONTEXT
+
+Every task must reference its related resource.
+
+Examples:
+
+- /schedules/:scheduleId
+- /research/:researchId
+- /browser/:profileId
+- /media/:assetId
+- /workflows/:workflowId
+- /publishing/:publicationId
+- /tasks/:taskId
+
+When clicking Open in Workspace:
+
+- Navigate to the exact resource.
+- Preserve related task ID.
+- Select the appropriate resource.
+- Open contextual activity where useful.
+- Provide Back to Conversation.
+
+Do not navigate only to a generic overview page.
+
+Context should be explicit and visible.
+
+Do not silently attach unrelated private data to AI requests.
+
+---
+
+# 40. GLOBAL CONTEXTUAL AI ASSISTANT
+
+Provide an optional AI panel from any main workspace.
+
+When opened:
+
+- Show current selected resource.
+- Show project context.
+- Show active task if relevant.
+- Provide a compact composer.
+- Display conversation and task responses.
+
+Example:
+
+Selected resource: Product Review 01.
+
+User instruction: Analyze this video.
+
+The AI panel should use the selected simulated resource rather than forcing the user to describe it again.
+
+Allow the panel to collapse without stopping tasks.
+
+---
+
+# 41. COMMAND PALETTE
+
+Implement a functional global command palette.
+
+Shortcut:
+
+- Ctrl+K on Windows.
+- Cmd+K on macOS.
+
+Use a centered dialog, approximately 560–640px wide.
+
+Features:
+
+- Search navigation.
+- Search tasks.
+- Search projects.
+- Search schedules.
+- Search media.
+- Search profiles.
+- Create task.
+- Create schedule.
+- Open Task Monitor.
+- Toggle theme.
+- Open settings.
+
+Keyboard:
+
+- Up/down to navigate.
+- Enter to select.
+- Escape to close.
+
+Group results by category.
+
+Show useful keyboard hints.
+
+---
+
+# 42. SHARED APPLICATION DATA MODEL
+
+Create typed domain models for:
+
+- Task.
+- TaskStep.
+- TaskEvent.
+- Resource.
+- ResourceOwnership.
+- BrowserProfile.
+- BrowserTab.
+- Project.
+- Schedule.
+- Workflow.
+- WorkflowNode.
+- ResearchProject.
+- ResearchRecord.
+- MediaAsset.
+- Publication.
+- KnowledgeDocument.
+- Conversation.
+- Message.
+- ApprovalRequest.
+- Notification.
+- UserSettings.
+
+Every task should contain:
+
+- Stable ID.
+- Title.
+- User instruction.
+- Type.
+- Status.
+- Progress model.
+- Resource reference.
+- Trigger source.
+- Conversation reference.
+- Project reference.
+- Steps.
+- Created time.
+- Updated time.
+- Result reference.
+- Error or partial-result details when relevant.
+
+Use a shared normalized store where appropriate.
+
+Do not create inconsistent duplicate copies of tasks across features.
+
+---
+
+# 43. MOCK EXECUTION ENGINE
+
+Create a centralized simulation engine separate from page components.
+
+The engine should simulate:
+
+- Task creation.
+- Queuing.
+- Planning.
+- Running.
+- Step transitions.
+- Progress.
+- Approval waiting.
+- Pause.
+- Resume.
+- Cancellation.
+- Resource ownership.
+- Partial result.
+- Failure.
+- Completion.
+
+Simulation continues while navigating within the application.
+
+Closing a Live Workspace panel does not cancel the simulated task.
+
+Multiple simulated tasks can exist simultaneously.
+
+Handle resource conflicts.
+
+Two tasks using different resources may run independently.
+
+Tasks competing for the same exclusive resource should wait or follow a defined ownership policy.
+
+Persist appropriate demo records.
+
+On page refresh, restore demo state consistently.
+
+Do not claim the browser prototype executes actual background work after the web application has been fully closed.
+
+Provide a Reset Demo Data feature.
+
+---
+
+# 44. REQUIRED INTERACTIVE DEMO SCENARIOS
+
+## Scenario A — Create a schedule through Chat
+
+Input:
+
+"Tạo lịch nghiên cứu 10 video TikTok về KANS 377 vào 8 giờ sáng mỗi ngày."
+
+Required:
+
+- Create a conversation message.
+- Create a task.
+- Show Live Task Card.
+- Create schedule draft.
+- Update schedule fields.
+- Show stage-based progress.
+- Deep link to exact schedule.
+- Allow takeover.
+- Return control.
+- Complete simulated schedule creation.
+
+## Scenario B — Research TikTok
+
+Input:
+
+"Tìm và phân tích 10 video KANS 377 trên TikTok bằng Profile 20."
+
+Required:
+
+- Create background task.
+- Show browser preview.
+- Simulate navigation.
+- Simulate collection.
+- Update count-based progress.
+- Show activity events.
+- Allow closing Live Workspace.
+- Continue task while changing pages.
+- Store fictional demo research records.
+- Produce a demo result summary.
+
+## Scenario C — Multiple tasks
+
+Create at least two tasks using different resources.
+
+Allow:
+
+- Continued chat.
+- Switching pages.
+- Switching observed task.
+- Pause one.
+- Resume one.
+- Cancel another.
+- Global monitoring.
+
+## Scenario D — Human Takeover
+
+Demonstrate complete ownership transfer on a schedule or simulated browser resource.
+
+## Scenario E — Approval
+
+Create a simulated publishing task.
+
+Wait for approval.
+
+Show approval in the centralized approval center.
+
+Approve or reject.
+
+Update all affected objects.
+
+## Scenario F — Partial Result
+
+Request five records.
+
+Collect only three.
+
+Show Partial status and three valid demo records.
+
+Do not invent two additional records.
+
+## Scenario G — Failure and Recovery
+
+Simulate a disconnected resource.
+
+Show a readable failure or recovering state.
+
+Support retry where appropriate.
+
+---
+
+# 45. RESPONSIVE DESIGN
+
+Use breakpoints approximately:
+
+- Mobile: below 640px.
+- Tablet: 640–1023px.
+- Laptop: 1024–1279px.
+- Desktop: 1280–1535px.
+- Wide desktop: 1536px and above.
+
+## Desktop
+
+- Full sidebar.
+- Flexible workspace.
+- Resizable Live Workspace and inspectors.
+
+## Laptop
+
+- Compact or collapsible sidebar.
+- Adjustable split views.
+- Avoid forcing narrow unreadable columns.
+
+## Tablet
+
+- Collapsed navigation.
+- Context panels become overlays or drawers.
+- Keep main workspace readable.
+
+## Mobile
+
+Prioritize:
+
+- AI Workspace.
+- Task monitoring.
+- Approvals.
+- Notifications.
+- Quick control.
+
+Use compact bottom navigation or a navigation drawer.
+
+Live Workspace becomes a separate screen or full-screen drawer.
+
+Do not attempt to fit three desktop columns into a mobile viewport.
+
+Touch targets should generally be at least 44px.
+
+Avoid horizontal overflow except inside intentionally scrollable tables or canvases.
+
+---
+
+# 46. ACCESSIBILITY
+
+Implement:
+
+- Semantic HTML.
+- Accessible labels.
+- Visible keyboard focus.
+- Keyboard navigation.
+- Focus trapping in modal dialogs.
+- Sufficient color contrast.
+- Text alternatives for meaningful images.
+- Accessible status labels.
+- Reduced-motion support.
+- Clear validation messages.
+
+Do not rely on color alone to communicate task status.
+
+Do not make important controls discoverable only through hover.
+
+Use aria-live or appropriate accessible status announcements selectively for significant task changes.
+
+Avoid announcing every progress event continuously.
+
+---
+
+# 47. LANGUAGE AND LOCALIZATION
+
+Default application language: Vietnamese.
+
+Additional language: English.
+
+Use an appropriate i18n solution or centralized translation dictionaries.
+
+All important navigation, settings, status labels, and actions must support language switching.
+
+Keep terminology consistent.
+
+Retain recognizable technical terms such as Profile, Workflow, Task, and Live Workspace when appropriate.
+
+Do not mix Vietnamese and English randomly inside the same control.
+
+Persist selected language.
+
+Use correct Vietnamese accents and readable font fallbacks.
+
+---
+
+# 48. MOCK DATA AND VISUAL ASSETS
+
+Use cohesive realistic fictional demo data.
+
+Example projects:
+
+- KANS 377 Product Research.
+- Fashion Content Production.
+- Affiliate Content Operations.
+
+Example browser resources:
+
+- Profile 20.
+- Profile 21.
+- Profile 22.
+- Profile 23.
+
+Example tasks:
+
+- Research TikTok videos.
+- Create daily research schedule.
+- Analyze product video.
+- Prepare content report.
+
+Use consistent identifiers across screens.
+
+Use representative thumbnails or clearly marked placeholders where necessary.
+
+Do not fabricate claims about real creators, actual sales, or real engagement metrics.
+
+Do not add irrelevant stock photography.
+
+Use fictional demo records and clear sample-data labels.
+
+---
+
+# 49. GLOBAL QUALITY RULES
+
+Do not:
+
+- Create a marketing landing page instead of the application.
+- Use generic AI dashboard aesthetics.
+- Use random gradients.
+- Create oversized cards for small pieces of information.
+- Use inconsistent typography.
+- Use inconsistent component radii.
+- Use arbitrary spacing values.
+- Create dead navigation links.
+- Create independent fake task state on different pages.
+- Make every interface element bright lime.
+- Add charts without purpose.
+- Create controls that appear functional but do nothing.
+- Request real API credentials.
+- Connect to real browser profiles.
+- Perform real publishing.
+- Claim actual media analysis.
+- Modify the existing production Miro repository.
+- Require Supabase, Vercel, or external authentication for the prototype.
+
+If functionality requires a real backend, implement a clearly labeled simulation or a disabled state with an explanation.
+
+---
+
+# 50. ACCEPTANCE CRITERIA
+
+The prototype is complete only when:
+
+## Visual System
+
+- All pages use the same design tokens.
+- Typography hierarchy is consistent.
+- Colors are semantic.
+- Spacing is consistent.
+- Components follow radius and sizing rules.
+- Dark and light themes work.
+- Navy Cream theme works.
+- No generic dashboard visual clutter.
+
+## Navigation
+
+- All 14 primary navigation pages are accessible.
+- Sidebar groups collapse.
+- Sidebar can collapse to icon mode.
+- Command palette works.
+- Deep links open the correct resource.
+
+## AI Experience
+
+- Chat works in simulation.
+- Multiple conversations exist.
+- Actionable messages create tasks.
+- Live Task Cards update.
+- Chat remains usable while tasks run.
+- Live Workspace can open, close, and expand.
+- Progress is consistent across pages.
+
+## Control
+
+- Global Task Monitor works.
+- Pause works.
+- Resume works.
+- Cancel works.
+- Retry works where applicable.
+- Human Takeover transfers simulated ownership.
+- Return Control works.
+- Stop All changes execution state.
+
+## Automation
+
+- Create and edit schedules.
+- Enable and disable schedules.
+- Run simulated schedules.
+- Create and edit workflow graphs.
+- Simulate workflow execution.
+
+## Data
+
+- Task status is synchronized across pages.
+- Resource updates are synchronized.
+- Demo data persists appropriately.
+- Missing data is clearly identified.
+- Reset Demo Data works.
+
+## Responsive
+
+- Desktop layout works.
+- Laptop layout works.
+- Mobile layout is usable.
+- Panels adapt properly.
+- No unintended page overflow.
+
+## Safety and Honesty
+
+- Simulated execution is distinguishable from real execution.
+- No external service receives real data.
+- No credentials are exposed.
+- No real publishing occurs.
+
+---
+
+# 51. IMPLEMENTATION ORDER
+
+Build in this order internally without stopping to ask for clarification:
+
+1. Global design tokens and themes.
+2. Typography and component primitives.
+3. Application shell and routing.
+4. Shared domain models and stores.
+5. Central mock execution engine.
+6. AI Workspace.
+7. Live Task Cards.
+8. Universal Live Workspace.
+9. Task Monitor.
+10. Overview and Tasks.
+11. Schedules and Workflows.
+12. Browser and Research.
+13. Projects and Media Studio.
+14. Publishing and Knowledge.
+15. Activity, Integrations, and Settings.
+16. Command palette and notification center.
+17. Human Takeover and approval flows.
+18. Responsive design.
+19. Localization.
+20. Final consistency and interaction review.
+
+Do not stop after any intermediate milestone.
+
+Complete the whole prototype in one implementation pass to the extent supported by the environment.
+
+If a platform limitation prevents an interaction, make the limitation explicit instead of pretending it works.
+
+---
+
+# 52. FINAL DESIGN REVIEW
+
+Before presenting the completed prototype, inspect the application as a senior product designer.
+
+Check:
+
+- Does it feel like one coherent product?
+- Is the visual identity recognizably Miro?
+- Are all headings consistent?
+- Are component dimensions consistent?
+- Are colors and spacing consistent?
+- Are the operational pages appropriately dense?
+- Does the AI Workspace feel like a professional work environment?
+- Can the user observe what AI is doing?
+- Can the user continue working while tasks run?
+- Can the user navigate directly to the object AI is manipulating?
+- Are task progress and status synchronized?
+- Can the user take over and return control?
+- Are all prototype limitations clearly communicated?
+
+Correct inconsistencies before final delivery.
+
+Build the complete frontend prototype now.
+
+Make the result sophisticated, practical, responsive, interactive, and easy to integrate with Miro's future real backend.
+
+**MIRO — INTELLIGENCE, IN MOTION.**
+
+**COMMAND. EXECUTE. OBSERVE. CONTROL.**
+
+# **III. Hệ thống thiết kế từng trang được phân chia như thế nào?**
+
+Để bạn hình dung AI sẽ không thiết kế tất cả các trang theo một mẫu Dashboard giống nhau, tôi tóm tắt các loại layout mà prompt vừa quy định.
+
+**AI Workspace**
+
+Chat + Live Workspace
+
+**Overview**
+
+Operational dashboard
+
+**Tasks**
+
+Data table + Inspector
+
+**Projects**
+
+Library + Project detail
+
+**Schedules**
+
+Calendar + Editor
+
+**Workflows**
+
+Node canvas + Inspector
+
+**Browser**
+
+Resource list + Viewport
+
+**Research**
+
+Data table + Evidence
+
+**Media Studio**
+
+Library + Preview + Timeline
+
+**Publishing**
+
+Content editor + Preview
+
+**Knowledge**
+
+Collections + Document
+
+**Settings**
+
+Settings navigation + Forms
+
+Đây là những wireframe nguyên tắc để các trang có bố cục phù hợp với nghiệp vụ riêng, nhưng vẫn thuộc cùng một Design System.
+
+# **IV. Các thư viện được lựa chọn cho dự án**
+
+| Thư viện               | Vai trò                  |
+| ---------------------- | ------------------------ |
+| React + TypeScript     | Nền tảng Frontend        |
+| Vite                   | Build và development     |
+| Tailwind CSS           | Styling                  |
+| shadcn/ui              | Component nền tảng       |
+| Radix UI               | Accessible UI primitives |
+| Lucide React           | Icon                     |
+| Zustand                | Shared state             |
+| TanStack Table         | Bảng dữ liệu             |
+| React Router           | Navigation và deep links |
+| React Hook Form        | Form                     |
+| Zod                    | Validation               |
+| React Resizable Panels | Chia vùng làm việc       |
+| React Flow             | Workflow Editor          |
+| FullCalendar           | Calendar                 |
+| date-fns               | Xử lý thời gian          |
+| Motion                 | Animation                |
+| Sonner                 | Toast notification       |
+| Recharts               | Biểu đồ khi thực sự cần  |
+
+Đây là bộ thư viện đề xuất theo chức năng, không phải yêu cầu cài toàn bộ một cách máy móc. Phiên bản cụ thể và khả năng hỗ trợ của từng nền tảng cần được kiểm tra khi AI dựng prototype.
+
+# **V. Kết quả tôi muốn thấy sau khi AI thiết kế**
+
+Định hướng giao diện Miro hoàn chỉnh — dữ liệu và bố cục minh họa.
+
+Điểm khác biệt của bản Master V2 là AI không chỉ biết **Miro có những chức năng gì**, mà còn biết:
+
+- Mỗi thành phần phải được thiết kế như thế nào.
+- Heading nào sử dụng ở đâu.
+- Khi nào được sử dụng màu accent.
+- Khi nào được sử dụng gradient và background-image.
+- Mỗi trang sử dụng layout nào.
+- Component nào dùng chung.
+- Thư viện nào giải quyết bài toán tương ứng.
+- Dữ liệu và trạng thái được đồng bộ như thế nào.
+
+Tôi đã chủ động chốt các thông số như sidebar 224px, header 52px, font Geist, base grid 4px và hệ thống radius 4–16px để prototype có tính nhất quán. Đây là các quyết định thiết kế đề xuất, chưa phải những tiêu chuẩn đã tồn tại trong repository Miro.
+
+**Bạn hãy sử dụng bản Master V2 này thay cho prompt cũ.** Sau khi Lovable và Google AI Studio tạo xong, chúng ta có thể kiểm tra trực tiếp từng giao diện, chọn ra những phần tốt nhất và chỉnh sửa tiếp trên cùng một hệ thống thiết kế, thay vì mỗi lần lại yêu cầu AI thiết kế theo một phong cách mới.
